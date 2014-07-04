@@ -1,5 +1,5 @@
 var dice = {
-    compareRolls: function(rolls, players , room) {
+    compareRolls: function(rolls, players, room) {
         var winner = Users.users[players[1]].userid; 
         var loser = Users.users[players[0]].userid;
         if(rolls[Users.users[players[0]]] > rolls[Users.users[players[1]]]) winner = Users.users[players[0]].userid; loser = Users.users[players[1]].userid;
@@ -8,17 +8,15 @@ var dice = {
         room.addRaw(Users.users[players[1]].name + ' rolled a <font color=red>' + rolls[Users.users[players[1]]] + '</font>');
         room.addRaw('<font color=#24678d> ' + winner + ' wins the dice game.</font>');
 
-        var cleanedUp = dice.bet;
-        var giveMoney = Number(cleanedUp);
+        var giveMoney = Number(dice[room.id].bet);
         var money = Core.stdin('money.csv', Users.users[winner].userid);
         var total = Number(money) + Number(giveMoney);
         Core.stdout('money.csv', Users.users[winner].userid, total);
         
-        var cleanedDown = dice.bet;
-        var takeMoney = Number(cleanedDown);
+        var takeMoney = Number(dice[room.id].bet);
         var bucks = Core.stdin('money.csv', Users.users[loser].userid);
         var amount = Number(bucks) - Number(takeMoney);
-        Core.stdout('money.csv', Users.users[loser].userid, amount);
+        Core.stdout('money.csv', Users.users[loser].userid, amount`
         }
         else  { 
             return room.add('It was a draw, both frens keep their money');
