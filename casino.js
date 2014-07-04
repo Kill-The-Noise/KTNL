@@ -24,9 +24,9 @@ var dice = {
             delete this[room.id];
         },
         generateRolls: function(players, room) {
-            var facez = [1,2,3,4,5,6]
+            var facez = [1,2,3,4,5,6];
             for(var i=0; i<players.length; i++) {
-                this[room.id].rolls[Users.users[players[i]]] = facez[Math.floor(Math.random()*6);]
+                this[room.id].rolls[Users.users[players[i]]] = facez[Math.floor(Math.random()*6)];
                 }
             }
     };
