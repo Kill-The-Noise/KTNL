@@ -6,7 +6,7 @@ var dice = {
         if(!rolls[Users.users[players[1]] === rolls[Users.users[players[0]]]]) {
         room.addRaw(Users.users[players[0]].name + ' rolled a <font color=red>' + rolls[Users.users[players[0]]] +'</font>');
         room.addRaw(Users.users[players[1]].name + ' rolled a <font color=red>' + rolls[Users.users[players[1]]] + '</font>');
-        room.addRaw('<font color=#24678d> ' + winner + ' wins the dice game.</font>');
+        room.addRaw('<font color=#24678d> ' + winner + ' wins the dice game and ' +'<font color=red>'+ dice.bet +'</font> bucks.</font>');
 
         var giveMoney = Number(dice[room.id].bet);
         var money = Core.stdin('money.csv', Users.users[winner].userid);
@@ -24,8 +24,9 @@ var dice = {
             delete this[room.id];
         },
         generateRolls: function(players, room) {
+            var facez = [1,2,3,4,5,6]
             for(var i=0; i<players.length; i++) {
-                this[room.id].rolls[Users.users[players[i]]] = Math.floor(Math.random()*6);
+                this[room.id].rolls[Users.users[players[i]]] = facez[Math.floor(Math.random()*6);]
                 }
             }
     };
