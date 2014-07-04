@@ -16,7 +16,7 @@ var dice = {
         var takeMoney = Number(dice[room.id].bet);
         var bucks = Core.stdin('money.csv', Users.users[loser].userid);
         var amount = Number(bucks) - Number(takeMoney);
-        Core.stdout('money.csv', Users.users[loser].userid, amount`
+        Core.stdout('money.csv', Users.users[loser].userid, amount);
         }
         else  { 
             return room.add('It was a draw, both frens keep their money');
