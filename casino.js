@@ -34,7 +34,7 @@ var dice = {
 startdice: function(target, room, user) {
      if(!this.can('broadcast'))  return;
      
-if(isNaN(target) || !target) return this.sendReply('Please use a real number fren.');
+if(isNaN(target) || !target || target == 0) return this.sendReply('Please use a real number fren.');
 
 if(dice[room.id]) return this.sendReply('There is already a dice game in this room fren.');
 
