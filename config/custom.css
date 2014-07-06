@@ -4,14 +4,18 @@
  
  .chat-log{font-size:10pt;background: url("http://i.imgur.com/563NKNl.png") no-repeat scroll right bottom;background:#ff895c;color:#000;overflow:auto;}
  
- .menugroup .button{background:#ffa500}.menugroup 
- 
+ .menugroup .button{
+ background:#08298A;
+ font-size:10px;
+ }
  .menugroup {
  background:#08298A;
  text-align: center;
+ font-size:10px;
  }
+ 
  .chat-log-add{
-  background:#08298A;
+ background: url(http://fc03.deviantart.net/fs71/i/2011/309/1/d/dark_blue_texture_by_carlbert-d4f8fa2.jpg);
  }
  .button:hover{background:#08298A;}
  
@@ -22,6 +26,11 @@
  
  .tabbar a.button.cur, .tabbar a.button.cur:hover {
  background: url(http://fc03.deviantart.net/fs71/i/2011/309/1/d/dark_blue_texture_by_carlbert-d4f8fa2.jpg);
+ color:white;
+ }
+ 
+.tabbar a.button: {
+	background: url(http://fc03.deviantart.net/fs71/i/2011/309/1/d/dark_blue_texture_by_carlbert-d4f8fa2.jpg);
  color:white;
  }
 .pm-window.focused h3:hover {
@@ -51,13 +60,7 @@ background: #58ACFA;
 border-color: black;
 }
 
-#header {
-background:none;
-}
 
-.chat-log {
-opacity:0.9;	
-}
 
 .pm-window h3 small  {
 color:#58ACFA;        
