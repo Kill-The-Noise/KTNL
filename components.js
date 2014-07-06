@@ -399,6 +399,45 @@ var components = exports.components = {
         if (!this.canBroadcast()) return;
         this.sendReplyBox(Poll[room.id].display);
     },
+    
+    clearall: function (target, room, user) {
+        if (!this.can('clearall')) return;
+        var len = room.log.length,
+            users = [];
+        while (len--) {
+            room.log[len] = '';
+        }
+        for (var user in room.users) {
+            users.push(user);
+            Users.get(user).leaveRoom(room, Users.get(user).connections[0]);
+        }
+        len = users.length;
+        setTimeout(function() {
+            while (len--) {
+                Users.get(users[len]).joinRoom(room, Users.get(users[len]).connections[0]);
+            }
+        }, 1000);
+    },
+    
+    sp: 'sendpopup',
+    spop: 'sendpopup',
+    spopup: 'sendpopup',
+	sendpopup: function(target, room, user) {
+		if (!this.can('popup')) return false;
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+
+		if (!targetUser) return this.sendReply('/sendpopup [user], [message] - You missed the user');
+		if (!target) return this.sendReply('/sendpopup [user], [message] - You missed the message');
+
+		targetUser.popup(target);
+		this.sendReply(targetUser.name + ' got the message as popup: ' + target);
+
+		//targetUser.send(user.name+' sent a popup message to you.');
+
+		this.logModCommand(user.name+' send a popup message to '+targetUser.name);
+	}, 
 
     dc: 'poof',
     disconnected: 'poof',
