@@ -23,7 +23,7 @@ var components = exports.components = {
     back: function (target, room, user, connection, cmd) {
         if (!user.away && cmd.toLowerCase() === 'back') return this.sendReply('You are not set as away.');
         user.away = !user.away;
-        if (user.isStaff && cmd !== 'back') room.add('|raw|-- <b><font color="' + Core.profile.color + '">' + user.name + '</font></b> is now away. ' + (target ? " (" + target + ")" : ""));
+        if (user.isStaff && cmd !== 'back') room.add('|raw|-- <b><font color="#24678d">' + user.name + '</font></b> is now away. ' + (target ? " (" + target + ")" : ""));
         user.updateIdentity();
         this.sendReply("You are " + (user.away ? "now" : "no longer") + " away.");
     },
@@ -626,7 +626,7 @@ var components = exports.components = {
         function callback(error, response, body) {
             if (!error && response.statusCode == 200) {
                 var page = JSON.parse(body);
-                var output = '<font color=' + Core.profile.color + '><b>Definitions for ' + target + ':</b></font><br />';
+                var output = '<font color="#24678d"><b>Definitions for ' + target + ':</b></font><br />';
                 if (!page[0]) {
                     self.sendReplyBox('No results for <b>"' + target + '"</b>.');
                     return room.update();
